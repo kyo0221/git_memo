@@ -1,12 +1,8 @@
 # 現在のブランチを常時表示する方法
 
-## ホームディレクトリに移動
+## ホームディレクトリに移動する
 ```
 cd ~
-```
-## wgetでスクリプトを取得する
-```
-wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh  wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
 ```
 
 ## vscodeでbashrcを開く
@@ -16,7 +12,11 @@ code .bashrc
 
 ## bashrcを開いたら以下の内容を追記
 ```
-PS1='\[\033[1;32m\]\u@\h\[\033[00m\]:\[\033[1;34m\]\W\[\033[00m\]\[\033[1;31m\]$(__git_ps1)\[\033[00m\]\$ '
+parse_git_branch() {
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+}
+
+PS1='\[\e]0;\u@\h: \w\a\]\[\e[32m\]\u@\h \[\e[34m\]\w\[\e[31m\]$(parse_git_branch)\[\e[0m\]\$ '
 ```
 
 ## 最後にsourceで読み込み直す
