@@ -1,10 +1,14 @@
 # 現在のブランチを常時表示する方法
 
 ## ホームディレクトリに移動
-'cd ~'
+'''
+cd ~
+'''
 
 ## wgetでスクリプトを取得する
-'wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh  wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash'
+'''
+wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh  wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
+'''
 
 ## vscodeでbashrcを開く
 'code .bashrc'
