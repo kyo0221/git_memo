@@ -35,6 +35,8 @@ source ~/.bashrc
 ```
 sudo apt install python3-rosinstall python3-catkin-tools python3-rosdep
 ```
+
+![](https://lh3.googleusercontent.com/pw/AP1GczNdyU1tmXMdB018FC5ivyyKOZIiyL1hF1gra82zC-ljykntMtv8shwk9W-Pp2cfCpqmFqX2e8eplBezhgyiiKhs_Xk1vfUnZf3yNEQ1F_lLi3WHY6AuHk5Eq3riJl9j1zc1IYuArXtbRxJnFgN3OFHt=w812-h645-s-no-gm)
 ```
 sudo rosdep init
 ```
