@@ -1,6 +1,6 @@
 # 現在のブランチを常時表示する方法
 
-## vimでbashrcを開く
+## vimでbashrcを開く(vimのインストールが必要)
 ```
 vi ~/.bashrc
 ```
@@ -11,7 +11,7 @@ echo 'parse_git_branch() {
     git branch 2> /dev/null | sed -e "/^[^*]/d" -e "s/* \(.*\)/(\1)/"
 }
 
-PS1=\'\[\e]0;\u@\h: \w\a\]\[\e[32m\]\u@\h \[\e[34m\]\w\[\e[31m\]$(parse_git_branch)\[\e[0m\]\$ \'' >> ~/.bashrc
+PS1="\u 🤮\[\e[48;5;44m\e[01;32m\]\[\e[01;34m\\w\\[\e[48;5;42m]\$(parse_git_branch)\[\e[00m\\]\n>>> "
 
 ```
 
