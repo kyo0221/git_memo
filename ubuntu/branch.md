@@ -7,11 +7,7 @@ vi ~/.bashrc
 
 ## bashrcに書き込む
 ```
-echo 'parse_git_branch() {
-    git branch 2> /dev/null | sed -e "/^[^*]/d" -e "s/* \(.*\)/(\1)/"
-}
-
-PS1="\u 🤮\[\e[48;5;44m\e[01;32m\]\[\e[01;34m\\w\\[\e[48;5;42m]\$(parse_git_branch)\[\e[00m\\]\n>>> "
+export PS1="\[\e[1;37m\]🐟🔰\u| \h🤮\e[m \e[40;5;33m\w\e[m\e[41;5;30m\]\$(parse_git_branch)\e[00m\n>>>"
 
 ```
 
