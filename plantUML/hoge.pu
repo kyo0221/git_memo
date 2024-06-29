@@ -1,0 +1,37 @@
+@startuml hoge
+agent Jetson_Orin
+agent ZEDX
+agent VN200
+agent ポテンショメータ
+agent スイッチングハブ
+agent 無線LANブリッジ
+
+agent 制御用基板
+
+
+(GNSSアンテナ)
+(UECER_NV)
+(ディスプレイ)
+
+Jetson_Orin --up-> ZEDX:専用のコネクタ
+Jetson_Orin -up-> (UECER_NV)
+(UECER_NV) -left-> (GNSSアンテナ):白い配線
+Jetson_Orin -> (ディスプレイ):HDMI
+
+Jetson_Orin -left-> (PC-DELL)
+(PC-DELL) -> VN200
+
+Jetson_Orin -> (jetsonスイッチ)
+Jetson_Orin --> スイッチングハブ
+
+スイッチングハブ --> 無線LANブリッジ
+
+package "制御用基板" {
+    [AP-RX62N-OA]
+    [CY8CKIT-C43]
+}
+
+制御用基板 -right-> ポテンショメータ
+
+
+@enduml
