@@ -1,3 +1,4 @@
+' Alt + D
 @startuml hoge
 agent Jetson_Orin
 agent ZEDX
@@ -5,6 +6,11 @@ agent VN200
 agent ポテンショメータ
 agent スイッチングハブ
 agent 無線LANブリッジ
+agent ブレーキ
+agent ブレーキ用リミットセンサー
+agent モータドライバ_駆動用モーター
+agent PC_DELL
+
 
 agent 制御用基板
 
@@ -24,7 +30,8 @@ Jetson_Orin -left-> (PC-DELL)
 Jetson_Orin -> (jetsonスイッチ)
 Jetson_Orin --> スイッチングハブ
 
-スイッチングハブ --> 無線LANブリッジ
+スイッチングハブ -up-> 無線LANブリッジ
+スイッチングハブ --> PC_DELL
 
 package "制御用基板" {
     [AP-RX62N-OA]
@@ -32,6 +39,9 @@ package "制御用基板" {
 }
 
 制御用基板 -right-> ポテンショメータ
-
+制御用基板 -up-> ブレーキ
+制御用基板 -right-> ブレーキ用リミットセンサー
+制御用基板 -up--> モータドライバ_駆動用モーター
+制御用基板 -left-> スイッチングハブ
 
 @enduml
