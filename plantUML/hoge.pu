@@ -10,25 +10,24 @@ agent ブレーキ
 agent ブレーキ用リミットセンサー
 agent モータドライバ_駆動用モーター
 agent PC_DELL
+agent GNSSアンテナ
+agent UECER_NV
 
 agent 制御用基板
 agent MPP制御基板
 agent 電源SW_LEDインジケータ基板
 agent MPP
 
-(GNSSアンテナ)
-(UECER_NV)
 (ディスプレイ)
 
-Jetson_Orin --up-> ZEDX:専用のコネクタ
-Jetson_Orin -up-> (UECER_NV)
-(UECER_NV) -left-> (GNSSアンテナ):白い配線
+Jetson_Orin ---> ZEDX:専用のコネクタ
+Jetson_Orin --> UECER_NV
+UECER_NV --> GNSSアンテナ
 Jetson_Orin -> (ディスプレイ):HDMI
 
 Jetson_Orin --> スイッチングハブ
 
-スイッチングハブ -up-> 無線LANブリッジ
-スイッチングハブ -down-> PC_DELL
+スイッチングハブ --> 無線LANブリッジ
 
 PC_DELL --> VN200
 
@@ -37,13 +36,13 @@ package "制御用基板" {
     [PSoC_制御]
 }
 
-AP_RX62N_OA .right.> PSoC_制御:CAN
-AP_RX62N_OA .down.> モータドライバ_駆動用モーター:CAN
-AP_RX62N_OA -left-> スイッチングハブ
+AP_RX62N_OA ..> PSoC_制御:CAN
+AP_RX62N_OA ..> モータドライバ_駆動用モーター:CAN
+AP_RX62N_OA --> スイッチングハブ
 
-PSoC_制御 -down-> ポテンショメータ:AN
-PSoC_制御 -up-> ブレーキ:専用I/F
-PSoC_制御 -right-> ブレーキ用リミットセンサー:ON/OFF
+PSoC_制御 --> ポテンショメータ:AN
+PSoC_制御 --> ブレーキ:専用I/F
+PSoC_制御 --> ブレーキ用リミットセンサー:ON/OFF
 
 package "MPP制御基板" {
     [Battery12V_昇圧回路]
