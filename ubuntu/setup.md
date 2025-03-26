@@ -2,6 +2,11 @@
 
 ROS, Slack, Vim, chrome, terminator, VSCode, AnyDesk, zoom
 
+ROS 2 huble install 
+```
+https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debs.html
+```
+
 slack install
 ```
 sudo snap install slack
